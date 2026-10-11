@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<!--
+================================================================
+リアライズフィット株式会社 ブランドサイト デザイン案（9/26ハウススタイル版）
+  コンセプト：「ばらばらの波が、ひとつに合う（Fit）。」
+    社名の Realize（実現する）と Fit（合う・整う）から着想。
+    経営者の判断、体の調子、日々の健康、チームの会話。人と組織にはそれぞれの波があり、
+    ばらばらのままでは力が打ち消し合う。四つの波の周期がそろったとき（Fit）、会社が思い描く姿が実現（Realize）に向かう、と表現。
+    ・ヒーロー：周期も振れ幅も違う四本の波が、少しずつ位相をそろえて一つのリズムになるCanvas
+    ・右端のスクロールレール：水準器の気泡。読み進めるほど傾きが ±4.8° → ±0.0° に近づき、最後に「整う」
+    ・図：四本の線が一本の波に合流するSVG
+    ※所在地・地名、代表者名からの着想は採用していません。
+  書体：Shippori Mincho B1 ＋ Zen Kaku Gothic New ＋ Cormorant Garamond
+  配色：深い森 #10201F ／ 若葉 #A8D5BA
+  デプロイ：Cloudflare Pages（Direct Upload）にこのファイルをそのままアップロード。
+            ビルド不要。外部依存は Google Fonts と Unsplash 画像のみ。
+
+  ■ 公開前の確認事項（チェックリスト）
+  【確認事項】英字ロゴ「REALIZE FIT」は仮表記です。社名を Realize（実現）＋ Fit（合う・整う）と読んだのは制作側の解釈です。
+  【確認事項】キャッチコピー「ばらばらの波を、ひとつのリズムに。」と各見出しは制作側の案です。
+  【確認事項】コンディショニング・健康維持増進は医療行為ではない旨の表記、対象（経営者個人／社員向け・法人向け）の範囲をご確認ください。効果を断定する表現は避けています（健康増進法・景品表示法・医師法との関係）。
+  【確認事項】各事業の説明・進め方・大切にしていることはCSVを膨らませた案です。資格・実績・数値はCSVに無いため未掲載です。
+  【確認事項】代表者の役職名は「代表取締役」と仮置きしています。
+  【確認事項】設立年月日・資本金・従業員数はCSVに無いため会社概要ではコメントアウトしています。
+  【確認事項】代表メッセージは草案です。ご本人の確認・修正を経て公開してください。署名欄の氏名は会社概要に記載のため省略しています。
+  【確認事項】画像はUnsplashの仮素材（差し替え推奨）：1544367567-0f2fcb009e0b / 1556761175-b413da4baf72 / 1571019614242-c5c5dee9f50b / 1506126613408-eca07ce68773 / 1600880292203-757bb62b4baf
+  【確認事項】旧案の写真 1588286840104-8957b019727f は背景の壁に文字看板が読み取れるため外しました。
+  【確認事項】OGP画像・favicon（仮の波）・公開URL
+  ※ご依頼に合わせ、連絡用のフォーム・エリア、代表者写真は設けていません。
+================================================================
+-->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>リアライズフィット株式会社｜経営者コンサル・コンディショニング・健康維持増進</title>
+<meta name="description" content="リアライズフィット株式会社は、経営者コンサル、コンディショニングサービス、健康維持増進、社員のコミュニケーションアドバイスを通じて、人と組織の調子を整える会社です。">
+<meta property="og:title" content="リアライズフィット株式会社｜ばらばらの波を、ひとつのリズムに。">
+<meta property="og:description" content="経営者コンサル、コンディショニング、健康維持増進、社員のコミュニケーションアドバイス。">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<!-- 【確認事項】og:url / og:image は公開ドメイン確定後に設定 -->
+<meta name="theme-color" content="#10201F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2310201F'/%3E%3Cpath d='M3 16c3-6 6-6 9 0s6 6 9 0 6-6 8 0' fill='none' stroke='%23A8D5BA' stroke-width='1.8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Shippori+Mincho+B1:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  /* 深い森の青緑と、呼吸の若葉色 */
+  --mori:#10201F;          /* 基調：深い森 */
+  --mori-2:#172B29;        /* 一段明るい */
+  --mori-deep:#0B1716;     /* フッター */
+  --wakaba:#A8D5BA;        /* 差し色：若葉（整った波） */
+  --base:var(--mori);--base2:var(--mori-2);--deep:var(--mori-deep);
+  --base-rgb:16,32,31;
+  --text:#E8F0EC;--mute:#8FA6A0;--soft:rgba(232,240,236,.8);
+  --accent:var(--wakaba);--accent-rgb:168,213,186;
+  --line:rgba(232,240,236,.13);--line-strong:rgba(232,240,236,.3);
+  --paper:#EAF0EC;--ink:#14231F;--ink-rgb:20,35,31;--ink-mute:#5B6D67;--accent-ink:#2F7A55;
+  --fallback:repeating-linear-gradient(0deg,transparent 0 22px,rgba(168,213,186,.12) 22px 23px),linear-gradient(160deg,#172B29,#0B1716);
+  --serif:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --latin:"Cormorant Garamond","Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --num:var(--latin);
+  --header-h:72px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--base);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.9;letter-spacing:.04em;word-break:auto-phrase;text-wrap:pretty;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,p,li,dd,dt{word-break:auto-phrase}
+.nw{display:inline-block}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.skip{position:fixed;left:12px;top:-60px;z-index:200;background:var(--accent);color:var(--base);padding:10px 16px;text-decoration:none;font-weight:700;transition:top .2s}
+.skip:focus{top:calc(12px + env(safe-area-inset-top,0px))}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{width:min(1160px,100% - 48px);margin:0 auto}
+.sec{padding:clamp(96px,14vw,180px) 0;position:relative}
+.alt{background:var(--base2);--sec-bg:var(--base2)}
+.deep{background:var(--deep);--sec-bg:var(--deep)}
+.paper{background:var(--paper);color:var(--ink);--line:rgba(var(--ink-rgb),.16);--line-strong:rgba(var(--ink-rgb),.5);--mute:var(--ink-mute);--soft:rgba(var(--ink-rgb),.8);--sec-bg:var(--paper);--accent:var(--accent-ink)}
+.lead{max-width:34em;margin:0 0 1.4em}
+p{margin:0 0 1.3em}
+
+/* header */
+.header{position:fixed;inset:0 0 auto 0;z-index:100;padding-top:env(safe-area-inset-top,0px);border-bottom:1px solid transparent;transition:background .4s,border-color .4s,backdrop-filter .4s}
+.header.is-scrolled{background:rgba(var(--base-rgb),.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-color:var(--line)}
+.header-in{height:var(--header-h);display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 clamp(20px,4vw,56px);max-width:1440px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.logo svg{flex:none}
+.gnav ul{list-style:none;margin:0;padding:0;display:flex;gap:clamp(16px,2.2vw,34px)}
+.gnav a{position:relative;display:block;padding:6px 0;text-decoration:none;font-size:13px;letter-spacing:.12em}
+.menu-btn{display:none;background:none;border:0;color:var(--text);width:44px;height:44px;cursor:pointer;position:relative;flex:none}
+@media (max-width:900px){
+ :root{--header-h:64px}
+ .menu-btn{display:block;z-index:120}
+ .gnav{position:fixed;inset:0;background:rgba(var(--base-rgb),.97);display:grid;place-items:center;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;padding:env(safe-area-inset-top,0px) 24px env(safe-area-inset-bottom,0px)}
+ .gnav.is-open{opacity:1;visibility:visible}
+ .gnav ul{flex-direction:column;align-items:center;gap:26px}
+ .gnav a{font-family:var(--serif);font-size:20px;letter-spacing:.14em}
+}
+
+/* hero shared */
+.hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.js .hero [data-in]{opacity:0;transform:translateY(14px);transition:opacity 1.2s cubic-bezier(.22,.7,.2,1),transform 1.2s cubic-bezier(.22,.7,.2,1)}
+.js .hero .v[data-in]{transform:translateY(-14px)}
+.js .is-loaded .hero [data-in]{opacity:1;transform:none}
+.is-loaded .hero [data-in="2"]{transition-delay:.4s}
+.is-loaded .hero [data-in="3"]{transition-delay:.85s}
+.is-loaded .hero [data-in="4"]{transition-delay:1.25s}
+.scroll-cue{position:absolute;z-index:2;display:flex;align-items:center;gap:12px;font-family:var(--latin);font-size:12px;letter-spacing:.24em;color:var(--mute);text-decoration:none;text-transform:uppercase}
+.scroll-cue i{display:block;width:1px;height:44px;background:linear-gradient(var(--mute),transparent);animation:cue 2.4s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* reveal */
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity 1s cubic-bezier(.22,.7,.2,1),transform 1s cubic-bezier(.22,.7,.2,1)}
+.js .reveal.is-in{opacity:1;transform:none}
+.js .reveal--fade{transform:none}
+
+/* photos */
+.ph{position:relative;overflow:hidden;margin:0;background:linear-gradient(135deg,var(--base2),var(--deep))}
+.ph img{width:100%;height:100%;object-fit:cover;filter:saturate(.78) contrast(1.03)}
+.ph.is-fallback{background:var(--fallback)}
+
+/* concept */
+.concept-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(40px,7vw,110px);align-items:center}
+.concept-text p{max-width:30em}
+.fig{margin:0}
+.fig svg{display:block;width:100%;height:auto;max-width:520px;margin:0 auto;overflow:visible}
+.fig figcaption{margin-top:16px;text-align:center;font-size:13px;color:var(--mute);letter-spacing:.08em}
+.fig .ln{fill:none;stroke:var(--accent);stroke-width:1.3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.4s cubic-bezier(.45,.05,.2,1) .3s}
+.fig .ln.d2{transition-delay:.9s}.fig .ln.d3{transition-delay:1.5s}.fig .ln.d4{transition-delay:2.1s}
+.fig .soft{fill:none;stroke:var(--line-strong);stroke-width:1}
+.fig .dot{fill:var(--accent);opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.3);transition:opacity .8s 1.2s,transform .8s cubic-bezier(.3,1.6,.5,1) 1.2s}
+.fig .lbl{fill:currentColor;font-family:var(--serif);font-size:17px;letter-spacing:.16em;opacity:0;transition:opacity 1s 1.8s}
+.fig .lbl-s{fill:var(--mute);font-family:var(--sans);font-size:11px;letter-spacing:.14em;opacity:0;transition:opacity 1s 2s}
+.fig.is-in .ln{stroke-dashoffset:0}
+.fig.is-in .dot{opacity:1;transform:none}
+.fig.is-in .lbl,.fig.is-in .lbl-s{opacity:1}
+@media (max-width:900px){.concept-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* band */
+.band{position:relative;height:clamp(260px,44vw,540px);overflow:hidden;margin:0;background:var(--fallback)}
+.band img{position:absolute;left:0;top:-9%;width:100%;height:118%;object-fit:cover;filter:saturate(.7) brightness(.66);will-change:transform}
+.band figcaption{position:absolute;left:clamp(24px,6vw,88px);bottom:clamp(24px,5vw,56px);z-index:1;font-family:var(--serif);font-size:clamp(18px,2vw,24px);letter-spacing:.16em;line-height:1.9;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.55)}
+
+/* business rows */
+.biz-intro{max-width:36em;margin:-24px 0 clamp(56px,8vw,96px);color:var(--mute)}
+.biz{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,6vw,88px);align-items:center}
+.biz+.biz{margin-top:clamp(72px,10vw,128px)}
+.biz:nth-of-type(even) .biz__media{order:2}
+.biz__media{aspect-ratio:4/3}
+.biz__media img{transform:scale(1.06);transition:transform 2.2s cubic-bezier(.2,.6,.2,1)}
+.biz.is-in .biz__media img{transform:scale(1)}
+.biz:hover .biz__media img{transform:scale(1.03)}
+.biz__kind{margin:0 0 10px;font-size:13px;letter-spacing:.16em;color:var(--accent)}
+.biz h3{font-family:var(--serif);font-weight:600;font-size:clamp(21px,2.3vw,28px);line-height:1.6;letter-spacing:.08em;margin:0 0 18px}
+.biz p{color:var(--soft)}
+.tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.tags li{font-size:12.5px;letter-spacing:.08em;padding:4px 13px;border:1px solid var(--line-strong);border-radius:999px}
+.note{font-size:13px;color:var(--mute);margin:18px 0 0}
+@media (max-width:900px){.biz{grid-template-columns:minmax(0,1fr)}.biz:nth-of-type(even) .biz__media{order:0}}
+
+/* steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:clamp(16px,2.4vw,32px);position:relative}
+.steps::before{content:"";position:absolute;left:0;right:0;top:11px;height:1px;background:var(--line)}
+.steps::after{content:"";position:absolute;left:0;top:11px;height:1px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 2.4s cubic-bezier(.6,.1,.2,1)}
+.steps.is-in::after{transform:scaleX(1)}
+.step{position:relative;padding-top:46px}
+.step__dot{position:absolute;left:0;top:0;width:23px;height:23px;border-radius:50%;border:1px solid var(--mute);background:var(--sec-bg,var(--base));display:grid;place-items:center}
+.step__dot::after{content:"";width:11px;height:11px;border-radius:50%;background:var(--accent);transform:scale(0);transition:transform .5s cubic-bezier(.3,1.6,.5,1) var(--d,0s)}
+.steps.is-in .step__dot::after{transform:scale(1)}
+.step__no{font-family:var(--num);font-size:13px;color:var(--accent);letter-spacing:.12em}
+.step h3{font-family:var(--serif);font-weight:600;font-size:22px;letter-spacing:.18em;margin:6px 0 4px}
+.step__sub{font-size:12.5px;color:var(--mute);letter-spacing:.1em;margin:0 0 10px}
+.step p{font-size:14.5px;margin:0;color:var(--soft)}
+.loop{display:flex;align-items:center;gap:14px;margin:52px 0 0;color:var(--mute);font-size:14px}
+.loop svg{flex:none}
+@media (max-width:900px){
+ .steps{grid-template-columns:minmax(0,1fr);gap:0;padding-left:42px}
+ .steps::before,.steps::after{left:11px;right:auto;top:10px;bottom:10px;width:1px;height:auto}
+ .steps::after{transform:scaleY(0);transform-origin:top}
+ .steps.is-in::after{transform:scaleY(1)}
+ .step{padding:0 0 36px}
+ .step__dot{left:-42px}
+}
+
+/* values */
+.values{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.values li{padding:8px clamp(18px,3vw,40px) 8px;border-left:1px solid var(--line)}
+.values li:first-child{border-left:0;padding-left:0}
+.values h3{font-family:var(--serif);font-weight:600;font-size:20px;letter-spacing:.12em;margin:0 0 12px;line-height:1.6}
+.values h3 i{display:block;font-style:normal;font-family:var(--latin);font-size:13px;letter-spacing:.2em;color:var(--accent);margin-bottom:8px}
+.values p{margin:0;font-size:14.5px;color:var(--soft)}
+@media (max-width:860px){.values{grid-template-columns:minmax(0,1fr)}.values li{border-left:0;border-top:1px solid var(--line);padding:24px 0}.values li:first-child{border-top:0;padding-top:0}}
+
+/* message */
+.msg{display:flex;flex-direction:row-reverse;gap:clamp(40px,6vw,96px);justify-content:center;align-items:flex-start}
+.msg__title{writing-mode:vertical-rl;font-family:var(--serif);font-weight:600;font-size:clamp(28px,3vw,40px);letter-spacing:.2em;line-height:1.7;margin:0;flex:none}
+.msg__body{writing-mode:vertical-rl;font-family:var(--serif);font-size:16.5px;line-height:2.3;letter-spacing:.14em;height:30em;max-width:100%;overflow-x:auto;overflow-y:hidden}
+.msg__body p{margin:0 0 0 1.5em}
+.msg__body .first{font-size:1.25em}
+.msg__sign{margin-top:auto!important;text-align:end;font-family:var(--sans)}
+.msg__sign small{display:block;font-size:13px;color:var(--mute);letter-spacing:.2em}
+.msg__sign strong{font-family:var(--serif);font-weight:600;font-size:20px;letter-spacing:.3em}
+@media (max-width:900px){
+ .msg{flex-direction:column;gap:32px}
+ .msg__title,.msg__body{writing-mode:horizontal-tb;height:auto}
+ .msg__body{line-height:2.1;letter-spacing:.06em;overflow:visible}
+ .msg__body p{margin:0 0 1.4em}
+ .msg__sign{text-align:right}
+}
+
+/* company */
+.company-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);gap:clamp(32px,6vw,96px);align-items:start}
+.company-grid .sh{margin-bottom:24px}
+@media (max-width:900px){.company-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* footer */
+.footer{background:var(--deep);border-top:1px solid var(--line);padding:clamp(56px,8vw,80px) 0 calc(40px + env(safe-area-inset-bottom,0px))}
+.footer-in{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:32px}
+.footer-tag{margin:18px 0 0;font-family:var(--serif);font-size:clamp(15px,1.6vw,19px);letter-spacing:.18em}
+.footer-nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 26px}
+.footer-nav a{text-decoration:none;font-size:13px;color:var(--mute);letter-spacing:.1em;transition:color .3s}
+.footer-nav a:hover{color:var(--text)}
+.copy{width:100%;margin:36px 0 0;font-family:var(--latin);font-size:12.5px;color:var(--mute);letter-spacing:.1em}
+.footer--center .footer-in{flex-direction:column;align-items:center;text-align:center}
+.footer--center .footer-nav ul{justify-content:center}
+
+/* rail base */
+.rail{position:fixed;right:clamp(10px,1.6vw,24px);top:50%;transform:translateY(-50%);height:min(54vh,480px);width:18px;z-index:90;pointer-events:none}
+.rail__line{position:absolute;left:8px;top:0;bottom:0;width:1px;background:var(--line-strong);opacity:.6}
+.rail__fill{position:absolute;left:8px;top:0;width:1px;height:100%;background:var(--accent);transform-origin:top;transform:scaleY(0)}
+.rail__tick{position:absolute;left:4px;width:9px;height:1px;background:rgba(var(--accent-rgb),.45);transition:width .4s,background .4s}
+.rail__tick.is-passed{width:11px;background:var(--accent)}
+.rail.on-light{--line-strong:rgba(var(--ink-rgb),.4)}
+@media (max-width:900px){.rail{right:6px;height:38vh}.rail__read{display:none}}
+
+.sh{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:end;gap:10px 28px;margin:0 0 clamp(40px,6vw,72px)}
+.sh__en{margin:0;font-family:var(--latin);font-weight:300;font-size:clamp(46px,7vw,92px);line-height:.9;letter-spacing:.02em;color:var(--accent);text-transform:uppercase}
+.sh h2{font-family:var(--serif);font-weight:600;font-size:clamp(20px,2.4vw,28px);line-height:1.6;letter-spacing:.12em;margin:0;padding-bottom:10px;border-bottom:1px solid var(--line)}
+@media (max-width:640px){.sh{grid-template-columns:minmax(0,1fr)}}
+.gnav a::after{content:"";position:absolute;left:50%;bottom:-3px;width:4px;height:4px;border-radius:50%;background:var(--accent);transform:translateX(-50%) scale(0);transition:transform .3s}
+.gnav a:hover::after,.gnav a:focus-visible::after{transform:translateX(-50%) scale(1)}
+.menu-btn span{position:absolute;left:10px;right:10px;height:1px;background:currentColor;transition:transform .3s,top .3s}
+.menu-btn span:nth-child(1){top:17px}.menu-btn span:nth-child(2){top:26px}
+.menu-btn[aria-expanded="true"] span:nth-child(1){top:22px;transform:rotate(28deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){top:22px;transform:rotate(-28deg)}
+.profile{margin:0;border-top:1px solid var(--line-strong)}
+.profile>div{display:grid;grid-template-columns:9em minmax(0,1fr);gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+.profile dt{color:var(--mute);font-size:14px;letter-spacing:.14em}
+.profile dd{margin:0}
+.profile ul{margin:0;padding:0;list-style:none}
+.profile li{position:relative;padding-left:1.2em}
+.profile li+li{margin-top:.3em}
+.profile li::before{content:"";position:absolute;left:0;top:.8em;width:6px;height:6px;background:var(--accent);border-radius:999px;width:12px;height:3px;top:.8em}
+@media (max-width:760px){.profile>div{grid-template-columns:minmax(0,1fr);gap:4px}}
+.logo__t{display:flex;flex-direction:column;line-height:1.1}
+.logo__t b{font-family:var(--latin);font-weight:500;font-size:20px;letter-spacing:.2em}
+.logo__t small{font-size:10px;color:var(--mute);letter-spacing:.12em}
+.sh__en{font-style:italic;text-transform:none;font-weight:400}
+.step__no{font-size:17px;font-style:italic}
+
+/* hero : A */
+.hero{background:radial-gradient(120% 90% at 80% 10%,#1B3330 0%,var(--base) 60%)}
+.hero__veil{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(16,32,31,.4) 0%,transparent 30%,transparent 62%,rgba(16,32,31,.9) 100%)}
+.hero__in{position:relative;z-index:1;min-height:100vh;min-height:100svh;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:40px;padding:calc(var(--header-h) + 48px) clamp(48px,7vw,110px) 76px clamp(20px,5vw,72px)}
+.hero h1{writing-mode:vertical-rl;font-family:var(--serif);font-weight:500;font-size:clamp(34px,3.9vw,54px);line-height:1.6;letter-spacing:.2em;margin:0 clamp(0px,5vw,72px) 0 0;align-self:center}
+.hero h1 span{display:block}
+.hero h1 span+span{padding-top:2.4em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero__copy{max-width:31em}
+.hero__en{font-family:var(--latin);font-style:italic;font-size:clamp(19px,1.7vw,23px);color:var(--accent);margin:0 0 14px}
+.hero__lead{font-size:15px;color:var(--soft);margin:0 0 20px}
+.legend{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;letter-spacing:.08em}
+.legend li{display:flex;align-items:center;gap:8px}
+.legend i{display:block;width:22px;height:2px;border-radius:2px;background:var(--c)}
+.hero .scroll-cue{left:50%;bottom:20px;transform:translateX(-50%);flex-direction:column}
+@media (max-width:760px){
+ .hero__in{grid-template-columns:minmax(0,1fr);align-content:space-between;padding:calc(var(--header-h) + 36px) 22px 80px}
+ .hero h1{writing-mode:horizontal-tb;font-size:clamp(26px,7.8vw,38px);letter-spacing:.08em;margin:0;align-self:start;order:-1}
+ .hero h1 span+span{padding-top:0;padding-left:1em}
+ .hero .scroll-cue{display:none}
+}
+
+/* concept fig */
+.fig .w{fill:none;stroke-width:1.3}
+.fig .w1{stroke:var(--text);opacity:.55}.fig .w2{stroke:var(--text);opacity:.4}.fig .w3{stroke:var(--text);opacity:.3}
+.fig .one{stroke:var(--accent);stroke-width:2.2}
+.fig .lbl{font-size:15px}
+
+/* service rows: smaller media */
+#service .biz__media{aspect-ratio:5/4;border-radius:2px 90px 2px 2px}
+#service .biz:nth-of-type(even) .biz__media{border-radius:90px 2px 2px 2px}
+
+/* rail : spirit level */
+.rail__line,.rail__fill{display:none}
+.rail__vial{position:absolute;left:2px;top:-8px;bottom:-8px;width:13px;border:1px solid var(--line-strong);border-radius:999px;background:linear-gradient(90deg,rgba(168,213,186,.05),rgba(168,213,186,.14),rgba(168,213,186,.05))}
+.rail__tick{left:2px;width:13px;background:rgba(168,213,186,.25)}
+.rail__tick.is-passed{width:13px;background:rgba(168,213,186,.5)}
+.rail__bubble{position:absolute;left:8.5px;top:0;width:9px;height:16px;margin:-8px 0 0 -4.5px;border-radius:999px;background:radial-gradient(circle at 35% 30%,#fff,rgba(168,213,186,.85) 55%,rgba(168,213,186,.4));transition:box-shadow .5s}
+.rail__bubble.is-fit{box-shadow:0 0 12px rgba(168,213,186,.95)}
+.rail__read{position:absolute;right:24px;top:0;transform:translateY(-50%);font-family:var(--latin);font-size:13px;color:var(--mute);writing-mode:vertical-rl;letter-spacing:.06em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.rail.on-light .rail__vial{border-color:rgba(20,35,31,.35)}
+.rail.on-light .rail__read{color:var(--ink-mute)}
+
+@media (prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ .js .reveal,.js .hero [data-in]{opacity:1;transform:none}
+ .fig .ln{stroke-dashoffset:0}.fig .dot,.fig .lbl,.fig .lbl-s{opacity:1;transform:none}
+ .steps::after{transform:none}.step__dot::after{transform:scale(1)}
+ .biz__media img{transform:none}
+ .band img{transform:none!important}
+}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="header" id="header">
+  <div class="header-in">
+    <!-- 【確認事項】英字ロゴ「REALIZE FIT」と波のマークは仮です -->
+    <a class="logo" href="#top" aria-label="リアライズフィット株式会社 トップへ"><svg width="30" height="20" viewBox="0 0 32 20" aria-hidden="true"><path d="M2 10c3-6 6-6 9 0s6 6 9 0 6-6 10 0" fill="none" stroke="#A8D5BA" stroke-width="1.5"/><path d="M2 14c3-6 6-6 9 0s6 6 9 0 6-6 10 0" fill="none" stroke="#E8F0EC" stroke-width="1" opacity=".5"/></svg><span class="logo__t"><b>REALIZE FIT</b><small>リアライズフィット株式会社</small></span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-controls="gnav" aria-expanded="false" aria-label="メニューを開く"><span></span><span></span></button>
+    <nav class="gnav" id="gnav" aria-label="メインメニュー">
+      <ul>
+      <li><a href="#concept">名前のこと</a></li>
+      <li><a href="#service">事業内容</a></li>
+      <li><a href="#flow">進め方</a></li>
+      <li><a href="#values">大切にしていること</a></li>
+      <li><a href="#message">代表メッセージ</a></li>
+      <li><a href="#company">会社概要</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="rail" id="rail" aria-hidden="true">
+  <div class="rail__line"></div>
+  <div class="rail__fill" id="railFill"></div>
+  <span class="rail__vial" aria-hidden="true"></span><span class="rail__bubble" id="railBubble"></span><span class="rail__read" id="railRead">±4.8°</span>
+</div>
+
+<main id="main">
+<!-- ===== Hero (A) ===== -->
+<section class="hero" id="top" data-rail aria-labelledby="heroTitle">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero__veil" aria-hidden="true"></div>
+  <div class="hero__in">
+    <div class="hero__copy" data-in="3">
+      <p class="hero__en" lang="en">Four rhythms, one fit.</p>
+      <p class="hero__lead">リアライズフィット株式会社は、経営者へのコンサルティング、体を整えるコンディショニング、健康の維持増進、そして社員のコミュニケーションへのアドバイスを通じて、人と組織の調子を整える会社です。</p>
+      <ul class="legend" aria-label="四つの波">
+        <li style="--c:rgba(232,240,236,.7)"><i></i>経営</li><li style="--c:rgba(232,240,236,.5)"><i></i>体</li><li style="--c:rgba(232,240,236,.35)"><i></i>健康</li><li style="--c:#A8D5BA"><i></i>チーム</li>
+      </ul>
+    </div>
+    <!-- 【確認事項】キャッチコピーは制作側の案 -->
+    <h1 class="v" id="heroTitle" data-in="1"><span>ばらばらの波を、</span><span>ひとつの<em>リズム</em>に。</span></h1>
+  </div>
+  <a class="scroll-cue" href="#concept"><i></i>Scroll</a>
+</section>
+
+<!-- ===== Concept ===== -->
+<section class="sec" id="concept" data-rail aria-labelledby="conceptTitle">
+  <div class="wrap concept-grid">
+    <div class="concept-text reveal">
+      <div class="sh sh--enbig"><p class="sh__en" lang="en" aria-hidden="true">Fit</p><h2 id="conceptTitle">波がそろうと、会社は動き出す。</h2></div>
+      <!-- 【確認事項】社名の解釈・理念文は制作側の案 -->
+      <p>社名の「リアライズフィット」を、私たちは二つの言葉として読んでいます。思い描いた姿を「実現する（Realize）」こと。そして、ぴたりと「合う・整う（Fit）」こと。</p>
+      <p>会社の調子は、そこで働く人の調子と切り離せません。経営者の判断、体の状態、日々の健康、チームの会話。それぞれに波があり、ばらばらのままでは、せっかくの力が打ち消し合ってしまいます。</p>
+      <p>四つの波の周期をそろえること。それが、私たちの考える「Fit」です。人が整えば、その先で会社が思い描く姿の実現に近づいていきます。</p>
+    </div>
+    <figure class="fig reveal--fade" data-draw>
+      <svg viewBox="0 0 460 300" role="img" aria-labelledby="figT figD">
+        <title id="figT">四本の波が一本のリズムに合流する図</title>
+        <desc id="figD">左側で「経営」「体」「健康」「チーム」の四本の線がそれぞれ違う波を描き、右へ進むにつれて一本のそろった波に合流していく図。</desc>
+        <path class="ln w w1" pathLength="1" d="M20 60c30-30 50 30 80 0s40-20 70 30 60 60 90 60"/>
+        <path class="ln w w2 d2" pathLength="1" d="M20 120c20 30 50-40 80 0s40 30 70 10 60 20 90 20"/>
+        <path class="ln w w3 d3" pathLength="1" d="M20 190c40-40 50 30 80 0s40-30 70-20 60 0 90-20"/>
+        <path class="ln w d4" pathLength="1" d="M20 250c20-20 60 20 80-10s40-60 70-60 60-30 90-30"/>
+        <path class="ln one d4" pathLength="1" d="M260 150c15-34 30-34 45 0s30 34 45 0 30-34 45 0 30 34 45 0"/>
+        <circle class="dot" cx="260" cy="150" r="5"/>
+        <text class="lbl-s" x="14" y="50">経営</text>
+        <text class="lbl-s" x="14" y="110">体</text>
+        <text class="lbl-s" x="14" y="180">健康</text>
+        <text class="lbl-s" x="14" y="276">チーム</text>
+        <text class="lbl" x="370" y="220" text-anchor="middle">Fit</text>
+      </svg>
+      <figcaption>周期がそろうと、力は打ち消し合わずに重なる。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<figure class="band">
+  <!-- 画像：Unsplash（仮）1544367567-0f2fcb009e0b 差し替え推奨 -->
+  <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&amp;fit=crop&amp;w=2000&amp;q=72" alt="" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('is-fallback');this.remove()">
+  <figcaption>体の調子が、<br>判断の調子をつくる。</figcaption>
+</figure>
+
+<!-- ===== Service ===== -->
+<section class="sec" id="service" data-rail aria-labelledby="svTitle">
+  <div class="wrap">
+    <div class="sh sh--enbig"><p class="sh__en" lang="en" aria-hidden="true">Service</p><h2 id="svTitle">事業内容</h2></div>
+    <p class="biz-intro">四つの波を、別々のテーマではなく、ひとつにつながったものとして整えます。</p>
+    <!-- 【確認事項】各事業の説明・項目はCSVを膨らませた案 -->
+    <article class="biz reveal" aria-labelledby="b1">
+      <figure class="biz__media ph">
+        <!-- 画像：Unsplash（仮）1556761175-b413da4baf72 -->
+        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&amp;fit=crop&amp;w=1400&amp;q=72" alt="オフィスで話し合う人たち" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('is-fallback');this.remove()">
+      </figure>
+      <div>
+        <p class="biz__kind">経営の波</p>
+        <h3 id="b1">経営者コンサル</h3>
+        <p>経営者が抱える課題や迷いに耳を傾け、考えを整理しながら、次の一手を一緒に考えます。判断のリズムが整えば、会社の動きもそろっていきます。</p>
+        <ul class="tags"><li>課題の整理</li><li>意思決定の壁打ち</li></ul>
+      </div>
+    </article>
+    <article class="biz reveal" aria-labelledby="b2">
+      <figure class="biz__media ph">
+        <!-- 画像：Unsplash（仮）1571019614242-c5c5dee9f50b -->
+        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&amp;fit=crop&amp;w=1400&amp;q=72" alt="トレーナーが付き添い、体を動かす様子" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('is-fallback');this.remove()">
+      </figure>
+      <div>
+        <p class="biz__kind">体の波</p>
+        <h3 id="b2">コンディショニングサービス</h3>
+        <p>体の状態を見つめ、動きやすく、疲れにくい体づくりをサポートします。</p>
+        <ul class="tags"><li>体の状態の確認</li><li>体を整えるサポート</li></ul>
+      </div>
+    </article>
+    <article class="biz reveal" aria-labelledby="b3">
+      <figure class="biz__media ph">
+        <!-- 画像：Unsplash（仮）1506126613408-eca07ce68773 -->
+        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&amp;fit=crop&amp;w=1400&amp;q=72" alt="窓辺で静かに座り呼吸を整える人" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('is-fallback');this.remove()">
+      </figure>
+      <div>
+        <p class="biz__kind">日々の波</p>
+        <h3 id="b3">健康維持増進</h3>
+        <p>日々の習慣を見直し、健康を保ち、高めていくための取り組みを支えます。続けやすい形を一緒に探します。</p>
+        <ul class="tags"><li>生活習慣の見直し</li><li>続けやすい健康づくり</li></ul>
+      </div>
+    </article>
+    <article class="biz reveal" aria-labelledby="b4">
+      <figure class="biz__media ph">
+        <!-- 画像：Unsplash（仮）1600880292203-757bb62b4baf -->
+        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&amp;fit=crop&amp;w=1400&amp;q=72" alt="笑顔でハイタッチをする職場の二人" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('is-fallback');this.remove()">
+      </figure>
+      <div>
+        <p class="biz__kind">チームの波</p>
+        <h3 id="b4">社員のコミュニケーションアドバイス</h3>
+        <p>職場での伝え方や関わり方に目を向け、社員同士が話しやすい関係づくりを助言します。</p>
+        <ul class="tags"><li>関わり方の助言</li><li>話しやすい職場づくり</li></ul>
+      </div>
+    </article>
+    <!-- 【確認事項】医療行為ではない旨の表記 -->
+    <p class="note reveal">※コンディショニング・健康維持増進のサービスは、医療行為ではありません。</p>
+  </div>
+</section>
+
+<!-- ===== Flow ===== -->
+<section class="sec alt" id="flow" data-rail aria-labelledby="flTitle">
+  <div class="wrap">
+    <div class="sh sh--enbig"><p class="sh__en" lang="en" aria-hidden="true">Process</p><h2 id="flTitle">進め方</h2></div>
+    <!-- 【確認事項】一般的な流れとしての案。実際の手順なので番号を使用 -->
+    <ol class="steps reveal--fade" data-draw style="--n:4">
+      <li class="step"><span class="step__dot" aria-hidden="true"></span><span class="step__no">01</span><h3>測る</h3><p class="step__sub">いまの波を知る</p><p>経営者と組織の状況、体と健康の悩みをお聞きします。</p></li>
+      <li class="step" style="--d:.6s"><span class="step__dot" aria-hidden="true"></span><span class="step__no">02</span><h3>描く</h3><p class="step__sub">目指す姿を決める</p><p>目指す姿を言葉にし、整えるべきことの優先順位を決めます。</p></li>
+      <li class="step" style="--d:1.2s"><span class="step__dot" aria-hidden="true"></span><span class="step__no">03</span><h3>整える</h3><p class="step__sub">波をそろえる</p><p>相談、コンディショニング、助言を組み合わせて進めます。</p></li>
+      <li class="step" style="--d:1.8s"><span class="step__dot" aria-hidden="true"></span><span class="step__no">04</span><h3>続ける</h3><p class="step__sub">リズムを保つ</p><p>変化を確かめながら、無理なく続けられる形に調整します。</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== Values ===== -->
+<section class="sec" id="values" data-rail aria-labelledby="vaTitle">
+  <div class="wrap">
+    <div class="sh sh--enbig"><p class="sh__en" lang="en" aria-hidden="true">Values</p><h2 id="vaTitle">大切にしていること</h2></div>
+    <!-- 【確認事項】文言は制作側の案 -->
+    <ul class="values reveal">
+      <li><h3><i>i</i>まず、本人の声を聞く</h3><p>経営者にも社員にも、それぞれの事情があります。決めつけず、話を聞くことから始めます。</p></li>
+      <li><h3><i>ii</i>体と心と組織を、分けずに見る</h3><p>体調、気持ち、職場の関係は互いに影響し合います。つながりとして捉えて整えます。</p></li>
+      <li><h3><i>iii</i>続けられることを選ぶ</h3><p>一時的な変化ではなく、日々の中で続けられる形を一緒に探します。</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== Message（草案） ===== -->
+<section class="sec paper" id="message" data-rail data-light aria-labelledby="msgTitle">
+  <!-- 【確認事項】代表メッセージは草案です。ご本人の確認・修正を経て公開してください -->
+  <div class="wrap">
+    <div class="msg reveal">
+      <h2 class="msg__title" id="msgTitle">人が整えば、<br>会社が動き出す。</h2>
+      <div class="msg__body">
+        <p class="first">会社の調子は、そこで働く人の調子と切り離せない。これが、私たちの出発点です。</p>
+        <p>経営者が疲れていれば判断は鈍り、チームの会話が噛み合わなければ、よい計画も前に進みません。体のこと、健康のこと、人間関係のこと。どれも経営の外側にあるようで、実は真ん中にあります。</p>
+        <p>私たちは、その一つひとつを別々に扱わず、ひとつのリズムとして整えることを大切にしています。</p>
+        <p>無理なく続けられる形で、少しずつ。波がそろったとき、会社は思い描いた姿へ動き出します。</p>
+        <!-- 【確認事項】署名欄の氏名は会社概要に記載のため省略。役職名は仮 -->
+        <p class="msg__sign"><small>代表取締役</small><strong>渡辺寛章</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Company ===== -->
+<section class="sec" id="company" data-rail aria-labelledby="coTitle">
+  <div class="wrap company-grid">
+    <div class="reveal"><div class="sh sh--enbig"><p class="sh__en" lang="en" aria-hidden="true">Company</p><h2 id="coTitle">会社概要</h2></div></div>
+    <div class="reveal">
+<dl class="profile">
+  <div><dt>商号</dt><dd>リアライズフィット株式会社</dd></div>
+  <!-- 【確認事項】役職名の表記（代表取締役と仮置き） -->
+  <div><dt>代表者</dt><dd>代表取締役　渡辺寛章</dd></div>
+  <div><dt>所在地</dt><dd>〒184-0004　東京都小金井市本町4-14-22</dd></div>
+  <div><dt>事業内容</dt><dd><ul><li>経営者コンサル</li><li>コンディショニングサービス</li><li>健康維持増進</li><li>社員のコミュニケーションアドバイス</li></ul></dd></div>
+  <!-- 【確認事項】設立年月日・資本金・従業員数はCSVに無いため未掲載。確定後にコメントを外して記入
+  <div><dt>設立</dt><dd>　年　月</dd></div>
+  <div><dt>資本金</dt><dd>　万円</dd></div>
+  <div><dt>従業員数</dt><dd>　名</dd></div>
+  -->
+</dl>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <div>
+      <a class="logo" href="#top" aria-label="リアライズフィット株式会社 トップへ"><svg width="30" height="20" viewBox="0 0 32 20" aria-hidden="true"><path d="M2 10c3-6 6-6 9 0s6 6 9 0 6-6 10 0" fill="none" stroke="#A8D5BA" stroke-width="1.5"/><path d="M2 14c3-6 6-6 9 0s6 6 9 0 6-6 10 0" fill="none" stroke="#E8F0EC" stroke-width="1" opacity=".5"/></svg><span class="logo__t"><b>REALIZE FIT</b><small>リアライズフィット株式会社</small></span></a>
+      <p class="footer-tag">ばらばらの波を、ひとつのリズムに。</p>
+    </div>
+    <nav class="footer-nav" aria-label="フッターメニュー">
+      <ul>
+      <li><a href="#concept">名前のこと</a></li>
+      <li><a href="#service">事業内容</a></li>
+      <li><a href="#flow">進め方</a></li>
+      <li><a href="#values">大切にしていること</a></li>
+      <li><a href="#message">代表メッセージ</a></li>
+      <li><a href="#company">会社概要</a></li>
+      </ul>
+    </nav>
+    <p class="copy"><small>&copy; <span id="year">2026</span> リアライズフィット株式会社</small></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+var railHooks = [], revealHooks = [];
+var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+
+/* header */
+var header = document.getElementById('header');
+
+/* menu */
+var btn = document.getElementById('menuBtn'), nav = document.getElementById('gnav');
+function setMenu(open){
+  btn.setAttribute('aria-expanded', String(open));
+  btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+  nav.classList.toggle('is-open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+  if (open){ var f = nav.querySelector('a'); if (f) f.focus(); }
+}
+btn.addEventListener('click', function(){ setMenu(btn.getAttribute('aria-expanded') !== 'true'); });
+nav.addEventListener('click', function(e){ if (e.target.closest('a') && nav.classList.contains('is-open')) setMenu(false); });
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && nav.classList.contains('is-open')){ setMenu(false); btn.focus(); } });
+matchMedia('(min-width:901px)').addEventListener('change', function(m){ if (m.matches) setMenu(false); });
+
+/* canvas runner (DPR<=2, debounce, pause offscreen/hidden, still frame on reduce) */
+function runCanvas(cv, factory, stillT){
+  if (!cv || !cv.getContext) return null;
+  var ctx = cv.getContext('2d'); if (!ctx) return null;
+  var api = factory(ctx), W = 0, H = 0, running = false, visible = true, raf = 0, t0 = performance.now();
+  function resize(){
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    api.build(W, H);
+  }
+  function loop(now){ if (!running) return; api.draw((now - t0)/1000); raf = requestAnimationFrame(loop); }
+  function start(){ if (running || reduce || !visible || document.hidden) return; running = true; raf = requestAnimationFrame(loop); }
+  function stop(){ running = false; cancelAnimationFrame(raf); }
+  function still(){ api.draw(stillT || 99); }
+  resize();
+  if (reduce) still(); else start();
+  var rt, lastW = W;
+  addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){
+    if (cv.clientWidth === lastW && Math.abs(cv.clientHeight - H) < 120 && running) return;  /* mobile URL bar */
+    lastW = cv.clientWidth; resize(); if (!running) still(); }, 150); });
+  if ('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){ visible = en[0].isIntersecting; visible ? start() : stop(); }).observe(cv.parentElement);
+  }
+  document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
+  return { still: still, isRunning: function(){ return running; } };
+}
+var pointer = {x:.5, y:.5, has:false};
+addEventListener('pointermove', function(e){ pointer.x = e.clientX/innerWidth; pointer.y = e.clientY/innerHeight; pointer.has = true; }, {passive:true});
+function clamp(v,a,b){ return v < a ? a : (v > b ? b : v); }
+function ease(t){ return t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2; }
+
+
+/* hero: 周期の違う四本の波が、少しずつ位相をそろえて一つのリズムになる */
+runCanvas(document.getElementById('heroCanvas'), function(ctx){
+  var W, H, waves = [];
+  var COLS = ['232,240,236,.62', '232,240,236,.45', '232,240,236,.32', '168,213,186,.9'];
+  return {
+    build: function(w, h){
+      W = w; H = h; waves = [];
+      for (var i = 0; i < 4; i++){
+        waves.push({f0:.6 + Math.random()*1.4, p0:Math.random()*6.283, a0:.4 + Math.random()*.8, y0:.3 + i*.13 + (Math.random() - .5)*.06, sp:.4 + Math.random()*.8});
+      }
+    },
+    draw: function(t){
+      ctx.clearRect(0, 0, W, H);
+      var k = ease(clamp((t - 1)/4.5, 0, 1));
+      var amp = H*(W < 760 ? .07 : .085)*(1 + (pointer.has ? (pointer.y - .5)*.4 : 0));
+      var mid = H*.5, len = 2*Math.PI/(W*(W < 760 ? .55 : .42));
+      for (var i = 0; i < 4; i++){
+        var wv = waves[i];
+        var f = wv.f0 + (1 - wv.f0)*k, ph = wv.p0*(1 - k) + t*(wv.sp + (.7 - wv.sp)*k), a = wv.a0 + (1 - wv.a0)*k;
+        var yc = H*wv.y0 + (mid - H*wv.y0)*k + (i - 1.5)*6*k;
+        var reveal = clamp((t - .2 - i*.25)/1.4, 0, 1); if (reveal <= 0) continue;
+        for (var s = 0; s < 3; s++){
+          ctx.beginPath();
+          for (var x = 0; x <= W*reveal; x += 6){
+            var y = yc + Math.sin(x*len*f + ph + s*.18)*amp*a*(1 - s*.12) + s*3;
+            x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+          }
+          var c = COLS[i].split(','); c[3] = (parseFloat(c[3])*(1 - s*.3)*(i === 3 ? 1 : (1 - .25*k))).toFixed(3);
+          ctx.strokeStyle = 'rgba(' + c.join(',') + ')'; ctx.lineWidth = s === 0 ? 1.4 : .8; ctx.stroke();
+        }
+      }
+      /* 波に乗る光の粒 */
+      if (k > .9){
+        for (var j = 0; j < 5; j++){
+          var px = ((t*60 + j*W/5) % (W + 40)) - 20, py = mid + Math.sin(px*len + t*.7)*amp - 1.5*6;
+          var g = ctx.createRadialGradient(px, py, 0, px, py, 10); g.addColorStop(0, 'rgba(168,213,186,.7)'); g.addColorStop(1, 'rgba(168,213,186,0)');
+          ctx.fillStyle = g; ctx.beginPath(); ctx.arc(px, py, 10, 0, 6.283); ctx.fill();
+        }
+      }
+    }
+  };
+}, 99);
+
+/* rail: 水準器の気泡。最後に「整う」 */
+var bubble = document.getElementById('railBubble'), lvRead = document.getElementById('railRead');
+railHooks.push(function(p){
+  bubble.style.top = (p*100) + '%';
+  bubble.classList.toggle('is-fit', p > .985);
+  lvRead.style.top = (p*100) + '%';
+  lvRead.textContent = p > .985 ? '整う' : '±' + (4.8*(1 - p)).toFixed(1) + '°';
+});
+
+
+/* reveal (one-shot) */
+var targets = document.querySelectorAll('.reveal, [data-draw]');
+function reveal(el){ el.classList.add('is-in'); revealHooks.forEach(function(h){ h(el); }); }
+if ('IntersectionObserver' in window && !reduce){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if (!en.isIntersecting) return; reveal(en.target); io.unobserve(en.target); });
+  }, {threshold:.18, rootMargin:'0px 0px -6% 0px'});
+  targets.forEach(function(t){ io.observe(t); });
+} else { targets.forEach(reveal); }
+
+/* rail */
+var rail = document.getElementById('rail'), fill = document.getElementById('railFill');
+var secs = Array.prototype.slice.call(document.querySelectorAll('[data-rail]')), ticks = [];
+var lights = Array.prototype.slice.call(document.querySelectorAll('[data-light]'));
+function layoutTicks(){
+  ticks.forEach(function(t){ t.el.remove(); }); ticks = [];
+  var max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+  secs.forEach(function(s){
+    var p = clamp(s.offsetTop / max, 0, 1), el = document.createElement('i');
+    el.className = 'rail__tick'; el.style.top = (p*100) + '%'; rail.appendChild(el); ticks.push({p:p, el:el});
+  });
+}
+var band = document.querySelector('.band img');
+function onScroll(){
+  header.classList.toggle('is-scrolled', scrollY > 40);
+  var max = document.documentElement.scrollHeight - innerHeight;
+  var p = max > 0 ? clamp(scrollY / max, 0, 1) : 0;
+  fill.style.transform = 'scaleY(' + p + ')';
+  ticks.forEach(function(t){ t.el.classList.toggle('is-passed', p >= t.p - .002); });
+  var mid = innerHeight/2, onLight = lights.some(function(s){ var r = s.getBoundingClientRect(); return r.top < mid && r.bottom > mid; });
+  rail.classList.toggle('on-light', onLight);
+  railHooks.forEach(function(h){ h(p, ticks); });
+  if (band && !reduce){
+    var r = band.parentElement.getBoundingClientRect();
+    if (r.bottom > 0 && r.top < innerHeight){ var k = (r.top + r.height/2 - innerHeight/2)/innerHeight; band.style.transform = 'translateY(' + (k*-40).toFixed(1) + 'px)'; }
+  }
+}
+var ticking = false;
+addEventListener('scroll', function(){ if (!ticking){ ticking = true; requestAnimationFrame(function(){ onScroll(); ticking = false; }); } }, {passive:true});
+addEventListener('load', function(){ layoutTicks(); onScroll(); });
+addEventListener('resize', function(){ layoutTicks(); onScroll(); });
+layoutTicks(); onScroll();
+
+requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.add('is-loaded'); }); });
+})();
+</script>
+</body>
+</html>
